@@ -1,25 +1,12 @@
 import { useState } from 'react';
 import Tab from './components/Tab';
+import { ALL_HEADER_TABS, getVisibleItems } from '../../shared/config/navigationConfig';
 import './styles.css';
-
-// All possible tabs for all roles
-const allTabs = [
-  { id: 1, label: 'Dashboard' },
-  { id: 2, label: 'Analytics' },
-  { id: 3, label: 'Reports' },
-  { id: 4, label: 'Settings' },
-  { id: 5, label: 'Projects' },
-  { id: 6, label: 'Products' },
-  { id: 7, label: 'Team' },
-  { id: 8, label: 'Users' },
-  { id: 9, label: 'Billing' },
-  { id: 10, label: 'Help' }
-];
 
 const Header = ({ role, visibleTabs, username, onLogout }) => {
   const [activeTab, setActiveTab] = useState(visibleTabs[0]);
 
-  const displayTabs = allTabs.filter(tab => visibleTabs.includes(tab.id));
+  const displayTabs = getVisibleItems(ALL_HEADER_TABS, visibleTabs);
 
   return (
     <header className="header">

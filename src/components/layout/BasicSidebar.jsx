@@ -1,37 +1,13 @@
-import { useState } from 'react';
-import Tab from '../common/Tab';
+import withSidebar from '../hoc/withSidebar';
 
-const BasicSidebar = ({ visibleTabs }) => {
-  const [activeTab, setActiveTab] = useState(visibleTabs[0]);
+// Only Basic user sidebar tabs - IDs 1, 3, 6, 9
+const basicTabs = [
+  { id: 1, label: 'Overview' },
+  { id: 3, label: 'Documents' },
+  { id: 6, label: 'Tasks' },
+  { id: 9, label: 'Resources' }
+];
 
-  // Only Basic user sidebar tabs - IDs 1, 3, 6, 9
-  const allTabs = [
-    { id: 1, label: 'Overview' },
-    { id: 3, label: 'Documents' },
-    { id: 6, label: 'Tasks' },
-    { id: 9, label: 'Resources' }
-  ];
-
-  const displayTabs = allTabs.filter(tab => visibleTabs.includes(tab.id));
-
-  return (
-    <aside className="sidebar">
-      <div className="sidebar-header">
-        <h2>Menu</h2>
-      </div>
-      <nav className="sidebar-nav">
-        {displayTabs.map(tab => (
-          <Tab
-            key={tab.id}
-            id={tab.id}
-            label={tab.label}
-            isActive={activeTab === tab.id}
-            onClick={setActiveTab}
-          />
-        ))}
-      </nav>
-    </aside>
-  );
-};
+const BasicSidebar = withSidebar(basicTabs);
 
 export default BasicSidebar;

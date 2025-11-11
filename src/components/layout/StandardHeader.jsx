@@ -1,45 +1,15 @@
-import { useState } from 'react';
-import Tab from '../common/Tab';
+import withHeader from '../hoc/withHeader';
 
-const StandardHeader = ({ visibleTabs, username, onLogout }) => {
-  const [activeTab, setActiveTab] = useState(visibleTabs[0]);
+// Only Standard user tabs - IDs 1, 2, 4, 6, 8, 10
+const standardTabs = [
+  { id: 1, label: 'Dashboard' },
+  { id: 2, label: 'Analytics' },
+  { id: 4, label: 'Settings' },
+  { id: 6, label: 'Products' },
+  { id: 8, label: 'Inventory' },
+  { id: 10, label: 'Support' }
+];
 
-  // Only Standard user tabs - IDs 1, 2, 4, 6, 8, 10
-  const allTabs = [
-    { id: 1, label: 'Dashboard' },
-    { id: 2, label: 'Analytics' },
-    { id: 4, label: 'Settings' },
-    { id: 6, label: 'Products' },
-    { id: 8, label: 'Inventory' },
-    { id: 10, label: 'Support' }
-  ];
-
-  const displayTabs = allTabs.filter(tab => visibleTabs.includes(tab.id));
-
-  return (
-    <header className="header">
-      <div className="header-logo">
-        <h1>MyApp</h1>
-      </div>
-      <nav className="header-nav">
-        {displayTabs.map(tab => (
-          <Tab
-            key={tab.id}
-            id={tab.id}
-            label={tab.label}
-            isActive={activeTab === tab.id}
-            onClick={setActiveTab}
-          />
-        ))}
-      </nav>
-      <div className="header-user">
-        <span className="username">👤 {username}</span>
-        <button className="logout-btn" onClick={onLogout}>
-          Logout
-        </button>
-      </div>
-    </header>
-  );
-};
+const StandardHeader = withHeader(standardTabs);
 
 export default StandardHeader;

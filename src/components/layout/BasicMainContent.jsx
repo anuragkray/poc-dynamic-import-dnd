@@ -1,33 +1,13 @@
-import Card from '../common/Card';
+import withMainContent from '../hoc/withMainContent';
 
-const BasicMainContent = ({ visibleCards }) => {
-  // Only Basic user cards - IDs 1, 3, 6, 9
-  const allCards = [
-    { id: 1, title: 'Sales Overview', content: 'Track your sales performance and trends.' },
-    { id: 3, title: 'Revenue Report', content: 'Monitor revenue streams and growth.' },
-    { id: 6, title: 'Team Performance', content: 'Track team productivity and goals.' },
-    { id: 9, title: 'Support Tickets', content: 'Manage customer support requests.' }
-  ];
+// Only Basic user cards - IDs 1, 3, 6, 9
+const basicCards = [
+  { id: 1, title: 'Sales Overview', content: 'Track your sales performance and trends.' },
+  { id: 3, title: 'Revenue Report', content: 'Monitor revenue streams and growth.' },
+  { id: 6, title: 'Team Performance', content: 'Track team productivity and goals.' },
+  { id: 9, title: 'Support Tickets', content: 'Manage customer support requests.' }
+];
 
-  const displayCards = allCards.filter(card => visibleCards.includes(card.id));
-
-  return (
-    <main className="main-content">
-      <div className="content-header">
-        <h2>Dashboard</h2>
-      </div>
-      <div className="cards-grid">
-        {displayCards.map(card => (
-          <Card
-            key={card.id}
-            id={card.id}
-            title={card.title}
-            content={card.content}
-          />
-        ))}
-      </div>
-    </main>
-  );
-};
+const BasicMainContent = withMainContent(basicCards);
 
 export default BasicMainContent;

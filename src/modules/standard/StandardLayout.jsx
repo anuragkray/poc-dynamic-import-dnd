@@ -1,24 +1,26 @@
 import { lazy, Suspense } from 'react';
 
-// Lazy load components for Standard users
-const Header = lazy(() => import('../../components/layout/Header'));
-const Sidebar = lazy(() => import('../../components/layout/Sidebar'));
-const MainContent = lazy(() => import('../../components/layout/MainContent'));
+// Lazy load ONLY Standard-specific components
+const StandardHeader = lazy(() => import('../../components/layout/StandardHeader'));
+const StandardSidebar = lazy(() => import('../../components/layout/StandardSidebar'));
+const StandardMainContent = lazy(() => import('../../components/layout/StandardMainContent'));
 
 const StandardLayout = ({ config, username, onLogout }) => {
+  console.log('✅ STANDARD LAYOUT - Only Standard components will be downloaded');
+  
   return (
     <div className="app-layout">
       <Suspense fallback={<div className="loading">Loading Header...</div>}>
-        <Header visibleTabs={config.headerTabs} username={username} onLogout={onLogout} />
+        <StandardHeader visibleTabs={config.headerTabs} username={username} onLogout={onLogout} />
       </Suspense>
       
       <div className="app-body">
         <Suspense fallback={<div className="loading">Loading Sidebar...</div>}>
-          <Sidebar visibleTabs={config.sidebarTabs} />
+          <StandardSidebar visibleTabs={config.sidebarTabs} />
         </Suspense>
         
         <Suspense fallback={<div className="loading">Loading Content...</div>}>
-          <MainContent visibleCards={config.mainContentCards} />
+          <StandardMainContent visibleCards={config.mainContentCards} />
         </Suspense>
       </div>
     </div>

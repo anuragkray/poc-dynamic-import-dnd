@@ -1,29 +1,24 @@
 import { useState } from 'react';
 import Tab from '../common/Tab';
 
-const Header = ({ visibleTabs, username, onLogout }) => {
+const StandardHeader = ({ visibleTabs, username, onLogout }) => {
   const [activeTab, setActiveTab] = useState(visibleTabs[0]);
 
+  // Only Standard user tabs - IDs 1, 2, 4, 6, 8, 10
   const allTabs = [
     { id: 1, label: 'Dashboard' },
     { id: 2, label: 'Analytics' },
-    { id: 3, label: 'Reports' },
     { id: 4, label: 'Settings' },
-    { id: 5, label: 'Users' },
     { id: 6, label: 'Products' },
-    { id: 7, label: 'Orders' },
     { id: 8, label: 'Inventory' },
-    { id: 9, label: 'Billing' },
     { id: 10, label: 'Support' }
   ];
 
   const displayTabs = allTabs.filter(tab => visibleTabs.includes(tab.id));
 
-  // Console logging for verification
-  console.log('🔷 HEADER - Role-based Rendering:');
-  console.log('  → Allowed Tab IDs:', visibleTabs);
+  console.log('🔷 STANDARD HEADER - Loaded and Rendering:');
+  console.log('  → Only Standard tabs code downloaded');
   console.log('  → Rendering Tabs:', displayTabs.map(t => `${t.id}: ${t.label}`));
-  console.log('  → Total Tabs Rendered:', displayTabs.length);
 
   return (
     <header className="header">
@@ -51,4 +46,4 @@ const Header = ({ visibleTabs, username, onLogout }) => {
   );
 };
 
-export default Header;
+export default StandardHeader;

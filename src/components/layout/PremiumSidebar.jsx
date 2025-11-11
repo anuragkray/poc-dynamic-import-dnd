@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import Tab from '../common/Tab';
 
-const Sidebar = ({ visibleTabs }) => {
+const PremiumSidebar = ({ visibleTabs }) => {
   const [activeTab, setActiveTab] = useState(visibleTabs[0]);
 
+  // All sidebar tabs for Premium users - IDs 1-10
   const allTabs = [
     { id: 1, label: 'Overview' },
     { id: 2, label: 'Statistics' },
@@ -19,11 +20,9 @@ const Sidebar = ({ visibleTabs }) => {
 
   const displayTabs = allTabs.filter(tab => visibleTabs.includes(tab.id));
 
-  // Console logging for verification
-  console.log('🔶 SIDEBAR - Role-based Rendering:');
-  console.log('  → Allowed Tab IDs:', visibleTabs);
+  console.log('🔶 PREMIUM SIDEBAR - Loaded and Rendering:');
+  console.log('  → All Premium sidebar tabs code downloaded');
   console.log('  → Rendering Tabs:', displayTabs.map(t => `${t.id}: ${t.label}`));
-  console.log('  → Total Tabs Rendered:', displayTabs.length);
 
   return (
     <aside className="sidebar">
@@ -45,4 +44,4 @@ const Sidebar = ({ visibleTabs }) => {
   );
 };
 
-export default Sidebar;
+export default PremiumSidebar;

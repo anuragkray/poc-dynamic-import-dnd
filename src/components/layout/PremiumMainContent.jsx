@@ -1,6 +1,7 @@
 import Card from '../common/Card';
 
-const MainContent = ({ visibleCards }) => {
+const PremiumMainContent = ({ visibleCards }) => {
+  // All cards for Premium users - IDs 1-12
   const allCards = [
     { id: 1, title: 'Sales Overview', content: 'Track your sales performance and trends.' },
     { id: 2, title: 'Customer Insights', content: 'Analyze customer behavior and preferences.' },
@@ -18,9 +19,8 @@ const MainContent = ({ visibleCards }) => {
 
   const displayCards = allCards.filter(card => visibleCards.includes(card.id));
 
-  // Console logging for verification
-  console.log('🔷 MAIN CONTENT - Role-based Rendering:');
-  console.log('  → Allowed Card IDs:', visibleCards);
+  console.log('🔷 PREMIUM MAIN CONTENT - Loaded and Rendering:');
+  console.log('  → All Premium cards code downloaded');
   console.log('  → Rendering Cards:', displayCards.map(c => `${c.id}: ${c.title}`));
   console.log('  → Total Cards Rendered:', displayCards.length);
 
@@ -43,4 +43,4 @@ const MainContent = ({ visibleCards }) => {
   );
 };
 
-export default MainContent;
+export default PremiumMainContent;

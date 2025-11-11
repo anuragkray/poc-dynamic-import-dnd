@@ -1,26 +1,20 @@
 import Card from '../common/Card';
 
-const MainContent = ({ visibleCards }) => {
+const StandardMainContent = ({ visibleCards }) => {
+  // Only Standard user cards - IDs 1, 2, 4, 6, 8, 10
   const allCards = [
     { id: 1, title: 'Sales Overview', content: 'Track your sales performance and trends.' },
     { id: 2, title: 'Customer Insights', content: 'Analyze customer behavior and preferences.' },
-    { id: 3, title: 'Revenue Report', content: 'Monitor revenue streams and growth.' },
     { id: 4, title: 'Marketing Metrics', content: 'Measure campaign effectiveness.' },
-    { id: 5, title: 'Product Analytics', content: 'View product performance data.' },
     { id: 6, title: 'Team Performance', content: 'Track team productivity and goals.' },
-    { id: 7, title: 'Inventory Status', content: 'Monitor stock levels and alerts.' },
     { id: 8, title: 'Financial Summary', content: 'Review financial health and forecasts.' },
-    { id: 9, title: 'Support Tickets', content: 'Manage customer support requests.' },
-    { id: 10, title: 'User Activity', content: 'Track user engagement and sessions.' },
-    { id: 11, title: 'System Health', content: 'Monitor system performance metrics.' },
-    { id: 12, title: 'Recent Updates', content: 'View latest changes and notifications.' }
+    { id: 10, title: 'User Activity', content: 'Track user engagement and sessions.' }
   ];
 
   const displayCards = allCards.filter(card => visibleCards.includes(card.id));
 
-  // Console logging for verification
-  console.log('🔷 MAIN CONTENT - Role-based Rendering:');
-  console.log('  → Allowed Card IDs:', visibleCards);
+  console.log('🔷 STANDARD MAIN CONTENT - Loaded and Rendering:');
+  console.log('  → Only Standard cards code downloaded');
   console.log('  → Rendering Cards:', displayCards.map(c => `${c.id}: ${c.title}`));
   console.log('  → Total Cards Rendered:', displayCards.length);
 
@@ -43,4 +37,4 @@ const MainContent = ({ visibleCards }) => {
   );
 };
 
-export default MainContent;
+export default StandardMainContent;

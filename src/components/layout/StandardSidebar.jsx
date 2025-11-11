@@ -1,29 +1,24 @@
 import { useState } from 'react';
 import Tab from '../common/Tab';
 
-const Sidebar = ({ visibleTabs }) => {
+const StandardSidebar = ({ visibleTabs }) => {
   const [activeTab, setActiveTab] = useState(visibleTabs[0]);
 
+  // Only Standard user sidebar tabs - IDs 1, 2, 4, 6, 8, 10
   const allTabs = [
     { id: 1, label: 'Overview' },
     { id: 2, label: 'Statistics' },
-    { id: 3, label: 'Documents' },
     { id: 4, label: 'Calendar' },
-    { id: 5, label: 'Messages' },
     { id: 6, label: 'Tasks' },
-    { id: 7, label: 'Projects' },
     { id: 8, label: 'Team' },
-    { id: 9, label: 'Resources' },
     { id: 10, label: 'Help' }
   ];
 
   const displayTabs = allTabs.filter(tab => visibleTabs.includes(tab.id));
 
-  // Console logging for verification
-  console.log('🔶 SIDEBAR - Role-based Rendering:');
-  console.log('  → Allowed Tab IDs:', visibleTabs);
+  console.log('🔶 STANDARD SIDEBAR - Loaded and Rendering:');
+  console.log('  → Only Standard sidebar tabs code downloaded');
   console.log('  → Rendering Tabs:', displayTabs.map(t => `${t.id}: ${t.label}`));
-  console.log('  → Total Tabs Rendered:', displayTabs.length);
 
   return (
     <aside className="sidebar">
@@ -45,4 +40,4 @@ const Sidebar = ({ visibleTabs }) => {
   );
 };
 
-export default Sidebar;
+export default StandardSidebar;

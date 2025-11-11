@@ -14,6 +14,15 @@ function App() {
   const [username, setUsername] = useState('');
 
   const handleLogin = (role, user) => {
+    console.clear(); // Clear previous logs
+    console.log('═══════════════════════════════════════════════════════');
+    console.log('🔐 USER LOGIN');
+    console.log('═══════════════════════════════════════════════════════');
+    console.log('👤 Username:', user);
+    console.log('🎭 Role:', role.toUpperCase());
+    console.log('📊 Role Configuration:', roleConfig[role]);
+    console.log('═══════════════════════════════════════════════════════\n');
+    
     setUserRole(role);
     setUsername(user);
     setIsLoggedIn(true);
@@ -27,6 +36,11 @@ function App() {
 
   const renderLayout = () => {
     const config = roleConfig[userRole];
+
+    console.log('🎨 RENDERING LAYOUT MODULE');
+    console.log('  → Module Type:', userRole.toUpperCase());
+    console.log('  → Loading:', `${userRole.charAt(0).toUpperCase() + userRole.slice(1)}Layout.jsx`);
+    console.log('───────────────────────────────────────────────────────\n');
 
     switch (userRole) {
       case ROLES.BASIC:

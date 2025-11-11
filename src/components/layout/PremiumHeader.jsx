@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import Tab from '../common/Tab';
 
-const Header = ({ visibleTabs, username, onLogout }) => {
+const PremiumHeader = ({ visibleTabs, username, onLogout }) => {
   const [activeTab, setActiveTab] = useState(visibleTabs[0]);
 
+  // All tabs for Premium users - IDs 1-10
   const allTabs = [
     { id: 1, label: 'Dashboard' },
     { id: 2, label: 'Analytics' },
@@ -19,11 +20,9 @@ const Header = ({ visibleTabs, username, onLogout }) => {
 
   const displayTabs = allTabs.filter(tab => visibleTabs.includes(tab.id));
 
-  // Console logging for verification
-  console.log('🔷 HEADER - Role-based Rendering:');
-  console.log('  → Allowed Tab IDs:', visibleTabs);
+  console.log('🔷 PREMIUM HEADER - Loaded and Rendering:');
+  console.log('  → All Premium tabs code downloaded');
   console.log('  → Rendering Tabs:', displayTabs.map(t => `${t.id}: ${t.label}`));
-  console.log('  → Total Tabs Rendered:', displayTabs.length);
 
   return (
     <header className="header">
@@ -51,4 +50,4 @@ const Header = ({ visibleTabs, username, onLogout }) => {
   );
 };
 
-export default Header;
+export default PremiumHeader;

@@ -19,11 +19,6 @@ const PremiumMainContent = ({ visibleCards }) => {
 
   const displayCards = allCards.filter(card => visibleCards.includes(card.id));
 
-  console.log('🔷 PREMIUM MAIN CONTENT - Loaded and Rendering:');
-  console.log('  → All Premium cards code downloaded');
-  console.log('  → Rendering Cards:', displayCards.map(c => `${c.id}: ${c.title}`));
-  console.log('  → Total Cards Rendered:', displayCards.length);
-
   return (
     <main className="main-content">
       <div className="content-header">

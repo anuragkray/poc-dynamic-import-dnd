@@ -6,8 +6,6 @@ const PremiumSidebar = lazy(() => import('../../components/layout/PremiumSidebar
 const PremiumMainContent = lazy(() => import('../../components/layout/PremiumMainContent'));
 
 const PremiumLayout = ({ config, username, onLogout }) => {
-  console.log('✅ PREMIUM LAYOUT - Only Premium components will be downloaded');
-  
   return (
     <div className="app-layout premium">
       <Suspense fallback={<div className="loading">Loading Header...</div>}>

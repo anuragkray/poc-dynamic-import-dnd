@@ -13,11 +13,6 @@ const StandardMainContent = ({ visibleCards }) => {
 
   const displayCards = allCards.filter(card => visibleCards.includes(card.id));
 
-  console.log('🔷 STANDARD MAIN CONTENT - Loaded and Rendering:');
-  console.log('  → Only Standard cards code downloaded');
-  console.log('  → Rendering Cards:', displayCards.map(c => `${c.id}: ${c.title}`));
-  console.log('  → Total Cards Rendered:', displayCards.length);
-
   return (
     <main className="main-content">
       <div className="content-header">

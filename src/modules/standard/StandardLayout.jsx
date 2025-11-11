@@ -6,8 +6,6 @@ const StandardSidebar = lazy(() => import('../../components/layout/StandardSideb
 const StandardMainContent = lazy(() => import('../../components/layout/StandardMainContent'));
 
 const StandardLayout = ({ config, username, onLogout }) => {
-  console.log('✅ STANDARD LAYOUT - Only Standard components will be downloaded');
-  
   return (
     <div className="app-layout">
       <Suspense fallback={<div className="loading">Loading Header...</div>}>

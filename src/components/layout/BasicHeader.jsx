@@ -14,10 +14,6 @@ const BasicHeader = ({ visibleTabs, username, onLogout }) => {
 
   const displayTabs = allTabs.filter(tab => visibleTabs.includes(tab.id));
 
-  console.log('🔷 BASIC HEADER - Loaded and Rendering:');
-  console.log('  → Only Basic tabs code downloaded');
-  console.log('  → Rendering Tabs:', displayTabs.map(t => `${t.id}: ${t.label}`));
-
   return (
     <header className="header">
       <div className="header-logo">

@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, lazy, Suspense } from 'react';
+import LoginPage from './components/auth/LoginPage';
+import { ROLES, roleConfig } from './config/roleConfig';
+import './App.css';
+
+// Dynamic imports for each role's layout - only the selected role's module will be loaded
+const BasicLayout = lazy(() => import('./modules/basic/BasicLayout'));
+const StandardLayout = lazy(() => import('./modules/standard/StandardLayout'));
+const PremiumLayout = lazy(() => import('./modules/premium/PremiumLayout'));
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState(null);
+  const [username, setUsername] = useState('');
+
+  const handleLogin = (role, user) => {
+    setUserRole(role);
+    setUsername(user);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUserRole(null);
+    setUsername('');
+  };
+
+  const renderLayout = () => {
+    const config = roleConfig[userRole];
+
+    switch (userRole) {
+      case ROLES.BASIC:
+        return (
+          <Suspense fallback={<div className="loading-module">Loading Basic Module...</div>}>
+            <BasicLayout config={config} username={username} onLogout={handleLogout} />
+          </Suspense>
+        );
+      case ROLES.STANDARD:
+        return (
+          <Suspense fallback={<div className="loading-module">Loading Standard Module...</div>}>
+            <StandardLayout config={config} username={username} onLogout={handleLogout} />
+          </Suspense>
+        );
+      case ROLES.PREMIUM:
+        return (
+          <Suspense fallback={<div className="loading-module">Loading Premium Module...</div>}>
+            <PremiumLayout config={config} username={username} onLogout={handleLogout} />
+          </Suspense>
+        );
+      default:
+        return <div>Invalid role</div>;
+    }
+  };
+
+  if (!isLoggedIn) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      {renderLayout()}
+    </div>
+  );
 }
 
-export default App
+export default App;

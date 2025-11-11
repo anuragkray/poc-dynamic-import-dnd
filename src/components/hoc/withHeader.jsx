@@ -11,10 +11,10 @@ const withHeader = (tabs) => {
     return (
       <header className="header">
         <div className="header-logo">
-          <h1>MyApp</h1>
+          <h1>Dynamic App</h1>
         </div>
         <nav className="header-nav">
-          {displayTabs.map(tab => (
+          {displayTabs.map((tab) => (
             <Tab
               key={tab.id}
               id={tab.id}

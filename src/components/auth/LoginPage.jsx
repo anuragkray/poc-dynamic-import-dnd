@@ -43,7 +43,7 @@ const LoginPage = ({ onLogin }) => {
     <div className="login-container">
       <div className="login-box">
         <div className="login-header">
-          <h1>Welcome to MyApp</h1>
+          <h1>Welcome to Dynamic App</h1>
           <p>Please login to continue</p>
         </div>
 
@@ -75,8 +75,10 @@ const LoginPage = ({ onLogin }) => {
           <div className="form-group">
             <label>Select User Type</label>
             <div className="role-selection">
-              <div 
-                className={`role-card ${selectedRole === ROLES.BASIC ? 'selected' : ''}`}
+              <div
+                className={`role-card ${
+                  selectedRole === ROLES.BASIC ? "selected" : ""
+                }`}
                 onClick={() => setSelectedRole(ROLES.BASIC)}
               >
                 <div className="role-icon">👤</div>
@@ -89,8 +91,10 @@ const LoginPage = ({ onLogin }) => {
                 </ul>
               </div>
 
-              <div 
-                className={`role-card ${selectedRole === ROLES.STANDARD ? 'selected' : ''}`}
+              <div
+                className={`role-card ${
+                  selectedRole === ROLES.STANDARD ? "selected" : ""
+                }`}
                 onClick={() => setSelectedRole(ROLES.STANDARD)}
               >
                 <div className="role-icon">⭐</div>
@@ -103,8 +107,10 @@ const LoginPage = ({ onLogin }) => {
                 </ul>
               </div>
 
-              <div 
-                className={`role-card ${selectedRole === ROLES.PREMIUM ? 'selected' : ''}`}
+              <div
+                className={`role-card ${
+                  selectedRole === ROLES.PREMIUM ? "selected" : ""
+                }`}
                 onClick={() => setSelectedRole(ROLES.PREMIUM)}
               >
                 <div className="role-icon">👑</div>

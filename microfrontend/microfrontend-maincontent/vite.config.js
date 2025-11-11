@@ -31,5 +31,10 @@ export default defineConfig({
   },
   server: {
     port: 5003,
+    cors: true,
+  },
+  preview: {
+    port: 5003,
+    cors: true,
   },
 });

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Script to stop all microfrontend V2 applications
+# Script to stop all microfrontend applications
 
-echo "🛑 Stopping all microfrontend V2 applications..."
+echo "🛑 Stopping all microfrontend applications..."
 echo ""
 
 # Function to stop application

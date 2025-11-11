@@ -1,4 +1,4 @@
-# Microfrontend Architecture V2 - Component-Based
+# Microfrontend Architecture - Component-Based
 
 This is a refined microfrontend architecture where each major UI component is a separate microfrontend:
 
@@ -41,8 +41,8 @@ This is a refined microfrontend architecture where each major UI component is a 
 
 ```bash
 # Automated setup
-chmod +x microfrontend-v2/install-and-run.sh
-./microfrontend-v2/install-and-run.sh
+chmod +x microfrontend/install-and-run.sh
+./microfrontend/install-and-run.sh
 
 # Access at http://localhost:5000
 ```

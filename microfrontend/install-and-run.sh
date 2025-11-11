@@ -39,28 +39,28 @@ start_app() {
 }
 
 # Check if we're in the right directory
-if [ ! -d "microfrontend-v2" ]; then
-    echo "❌ Error: microfrontend-v2 directory not found"
+if [ ! -d "microfrontend" ]; then
+    echo "❌ Error: microfrontend directory not found"
     echo "Please run this script from the project root directory"
     exit 1
 fi
 
 echo "Step 1: Installing Dependencies"
 echo "--------------------------------"
-install_deps "microfrontend-v2/host" "Host Application"
-install_deps "microfrontend-v2/mfe-header" "Header MFE"
-install_deps "microfrontend-v2/mfe-sidebar" "Sidebar MFE"
-install_deps "microfrontend-v2/mfe-maincontent" "MainContent MFE"
+install_deps "microfrontend/host" "Host Application"
+install_deps "microfrontend/microfrontend-header" "Header MFE"
+install_deps "microfrontend/microfrontend-sidebar" "Sidebar MFE"
+install_deps "microfrontend/microfrontend-maincontent" "MainContent MFE"
 
 echo "Step 2: Starting Applications"
 echo "-----------------------------"
-start_app "microfrontend-v2/mfe-header" "header" "5001"
+start_app "microfrontend/microfrontend-header" "header" "5001"
 sleep 2
-start_app "microfrontend-v2/mfe-sidebar" "sidebar" "5002"
+start_app "microfrontend/microfrontend-sidebar" "sidebar" "5002"
 sleep 2
-start_app "microfrontend-v2/mfe-maincontent" "maincontent" "5003"
+start_app "microfrontend/microfrontend-maincontent" "maincontent" "5003"
 sleep 2
-start_app "microfrontend-v2/host" "host" "5000"
+start_app "microfrontend/host" "host" "5000"
 
 echo ""
 echo "=========================================="
@@ -79,7 +79,7 @@ echo "   Standard User:  username: standard  password: standard123"
 echo "   Premium User:   username: premium   password: premium123"
 echo ""
 echo "🛑 To stop all applications, run:"
-echo "   ./microfrontend-v2/stop-all.sh"
+echo "   ./microfrontend/stop-all.sh"
 echo ""
 echo "📊 To view logs:"
 echo "   tail -f /tmp/mfe-v2-*.log"

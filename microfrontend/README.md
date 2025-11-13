@@ -37,15 +37,46 @@ This is a refined microfrontend architecture where each major UI component is a 
 - **Sidebar MFE** (Port 5002) - All sidebar components for all roles
 - **MainContent MFE** (Port 5003) - All main content components for all roles
 
+## Available Scripts
+
+```
+microfrontend/
+├── build-and-run.sh       # Production-like: builds remotes, runs in preview
+├── dev-mode-hybrid.sh     # Quick start: builds once, no auto-rebuild
+├── dev-mode-watch.sh      # Auto-rebuild: watches files, rebuilds on change
+├── install-and-run.sh     # Setup and installation
+└── stop-all.sh            # Stop all applications
+```
+
 ## Running
 
+### Quick Start (Recommended for Development)
 ```bash
-# Automated setup
-chmod +x microfrontend/install-and-run.sh
-./microfrontend/install-and-run.sh
-
-# Access at http://localhost:5000
+# Auto-rebuild mode - best for active development
+bash microfrontend/dev-mode-watch.sh
 ```
+
+### Other Options
+```bash
+# Production-like mode - most stable
+bash microfrontend/build-and-run.sh
+
+# Quick start mode - fast startup
+bash microfrontend/dev-mode-hybrid.sh
+
+# First time setup
+bash microfrontend/install-and-run.sh
+```
+
+### Stopping Applications
+```bash
+bash microfrontend/stop-all.sh
+# or press Ctrl+C
+```
+
+**Access at:** http://localhost:5000
+
+For detailed information about development modes, see [DEVELOPMENT_MODES.md](./DEVELOPMENT_MODES.md)
 
 ## Test Credentials
 

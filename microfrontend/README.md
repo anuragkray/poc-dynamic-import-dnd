@@ -50,14 +50,24 @@ microfrontend/
 
 ## Running
 
-### Quick Start (Recommended for Development)
+### For Windows Users
+
+```cmd
+REM First time setup (installs dependencies and starts apps)
+microfrontend\install-and-run.bat
+
+REM Or just build and run (if dependencies already installed)
+microfrontend\build-and-run.bat
+```
+
+**To stop:** Close all the command windows that opened
+
+### For Mac/Linux Users
+
 ```bash
 # Auto-rebuild mode - best for active development
 bash microfrontend/dev-mode-watch.sh
-```
 
-### Other Options
-```bash
 # Production-like mode - most stable
 bash microfrontend/build-and-run.sh
 
@@ -68,7 +78,7 @@ bash microfrontend/dev-mode-hybrid.sh
 bash microfrontend/install-and-run.sh
 ```
 
-### Stopping Applications
+**To stop:**
 ```bash
 bash microfrontend/stop-all.sh
 # or press Ctrl+C
